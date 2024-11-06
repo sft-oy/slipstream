@@ -118,6 +118,7 @@ defmodule Slipstream.Connection.Impl do
   # coveralls-ignore-start
   def decode_message(:ping, _state), do: :ping
   def decode_message(:pong, _state), do: :pong
+  def decode_message({:pong, ""}, _state), do: {:pong, ""}
   def decode_message({:close, _, _} = message, _state), do: message
   # coveralls-ignore-stop
 
